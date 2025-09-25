@@ -1,0 +1,23 @@
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Cadastro de Fundações";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Escolha uma operação:</p>
+
+<div style="display:flex; gap:10px;">
+    <a href="/Fundacoes/Create">
+        <button style="background-color:blue">Cadastrar Fundação</button>
+    </a>
+    <a href="/Fundacoes/Search">
+        <button>Pesquisar Fundação</button>
+    </a>
+    <a href="/Fundacoes/Edit">
+        <button>Editar Fundação</button>
+    </a>
+    <a href="/Fundacoes/Delete">
+        <button>Excluir Fundação</button>
+    </a>
+</div>
