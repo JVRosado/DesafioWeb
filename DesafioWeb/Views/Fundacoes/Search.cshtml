@@ -1,0 +1,38 @@
+@model DesafioWeb.Models.Fundacao
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Pesquisar Fundação";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<!-- Formulário de busca -->
+<form asp-action="Search" method="post">
+    <div>
+        <label for="cnpj">CNPJ:</label>
+        <input type="text" id="cnpj" name="cnpj" required />
+        <button type="submit">Pesquisar</button>
+    </div>
+</form>
+
+<hr />
+
+<!-- Exibe mensagens de erro ou status -->
+@if (ViewBag.Mensagem != null)
+{
+    <p style="color:red">@ViewBag.Mensagem</p>
+}
+
+<!-- Exibe os dados da fundação se encontrados -->
+@if (Model != null)
+{
+    <h2>Resultado da Pesquisa</h2>
+    <ul>
+        <li><strong>Nome:</strong> @Model.Nome</li>
+        <li><strong>CNPJ:</strong> @Model.CNPJ</li>
+        <li><strong>Email:</strong> @Model.Email</li>
+        <li><strong>Telefone:</strong> @Model.Telefone</li>
+        <li><strong>Instituição Apoiadora:</strong> @Model.InstituicaoApoiada</li>
+    </ul>
+}

@@ -58,16 +58,42 @@ namespace DesafioWeb.Controllers
             return View();
         }
 
+
         // GET: Fundacoes/Delete
+        [HttpGet]
         public IActionResult Delete()
         {
             return View();
         }
 
         // GET: Fundacoes/Search
+        [HttpGet]
         public IActionResult Search()
         {
+
             return View();
         }
+        // POST: Fundacoes/Search
+        [HttpPost]
+        public IActionResult Search(string cnpj)
+        {
+            if (string.IsNullOrWhiteSpace(cnpj))
+            {
+                ViewBag.Mensagem = "Informe um CNPJ válido.";
+                return View();
+            }
+
+            var fundacao = _database.BuscarPorCNPJ(cnpj);
+
+            if (fundacao == null)
+            {
+                ViewBag.Mensagem = "Fundação não encontrada.";
+                return View();
+            }
+
+            return View(fundacao); // envia a fundação encontrada
+        }
+
     }
+
 }
