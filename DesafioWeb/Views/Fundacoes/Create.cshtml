@@ -1,0 +1,39 @@
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Cadastrar Fundação";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Preencha os dados da fundação abaixo:</p>
+
+<form method="post" action="/Fundacoes/Create">
+    <div>
+        <label for="Nome">Nome:</label>
+        <input type="text" id="Nome" name="Nome" required />
+    </div>
+
+    <div>
+        <label for="CNPJ">CNPJ:</label>
+        <input type="text" id="CNPJ" name="CNPJ" required />
+    </div>
+
+    <div>
+        <label for="Email">E-mail:</label>
+        <input type="email" id="Email" name="Email" />
+    </div>
+
+    <div>
+        <label for="Telefone">Telefone:</label>
+        <input type="text" id="Telefone" name="Telefone" />
+    </div>
+
+    <div>
+        <label for="InstituicaoApoiada">Instituição Apoiada:</label>
+        <input type="text" id="InstituicaoApoiada" name="InstituicaoApoiada" />
+    </div>
+
+    <div style="margin-top:10px;">
+        <button type="submit" style="background-color:blue; color:white; padding:8px 12px; border:none; border-radius:4px;">Cadastrar</button>
+    </div>
+</form>
