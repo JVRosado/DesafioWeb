@@ -8,7 +8,9 @@
 <!-- Mensagem de sucesso ou erro -->
 @if(ViewBag.Mensagem != null)
 {
-    <p style="color:green">@ViewBag.Mensagem</p>
+    <p style="color:@(ViewBag.Mensagem == "Cadastro efetuado com sucesso!" ? "green" : "red");">
+        @ViewBag.Mensagem
+    </p>
 }
 
 <p>Preencha os dados da fundação abaixo:</p>

@@ -6,6 +6,53 @@ namespace DesafioWeb.Controllers
 {
     public class FundacoesController : Controller
     {
+
+        // Validação de CNPJ
+        private bool CnpjValido(string cnpj)
+        {
+            if (string.IsNullOrWhiteSpace(cnpj))
+                return false;
+
+            // Remove caracteres não numéricos
+            cnpj = new string(cnpj.Where(char.IsDigit).ToArray());
+
+            if (cnpj.Length != 14)
+                return false;
+
+            // Verifica se todos os dígitos são iguais
+            if (cnpj.All(c => c == cnpj[0]))
+                return false;
+
+            int[] multiplicador1 = { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
+            int[] multiplicador2 = { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
+
+            string tempCnpj = cnpj.Substring(0, 12);
+            int soma = 0;
+
+            for (int i = 0; i < 12; i++)
+                soma += int.Parse(tempCnpj[i].ToString()) * multiplicador1[i];
+
+            int resto = (soma % 11);
+            if (resto < 2) resto = 0; else resto = 11 - resto;
+
+            if (resto != int.Parse(cnpj[12].ToString()))
+                return false;
+
+            tempCnpj += cnpj[12];
+            soma = 0;
+
+            for (int i = 0; i < 13; i++)
+                soma += int.Parse(tempCnpj[i].ToString()) * multiplicador2[i];
+
+            resto = (soma % 11);
+            if (resto < 2) resto = 0; else resto = 11 - resto;
+
+            if (resto != int.Parse(cnpj[13].ToString()))
+                return false;
+
+            return true;
+        }
+
         private readonly Database _database;
 
         public FundacoesController()
@@ -34,10 +81,15 @@ namespace DesafioWeb.Controllers
         {
             try
             {
+                if (!CnpjValido(fundacao.CNPJ))
+                {
+                    ViewBag.Mensagem = $"O CNPJ{fundacao.CNPJ} é inválido!";
+                    return View();
+                }
                 var existente = _database.BuscarPorCNPJ(fundacao.CNPJ);
                 if (existente != null)
                 {
-                    ViewBag.Mensagem = "CNPJ já cadastrado!";
+                    ViewBag.Mensagem = $"O CNPJ {fundacao.CNPJ} já está cadastrado!";
                     return View();
                 }
 
