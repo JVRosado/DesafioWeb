@@ -1,3 +1,5 @@
+using DesafioWeb.Data; // 🔹 importa a classe Database
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
