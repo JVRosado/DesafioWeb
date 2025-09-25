@@ -5,6 +5,12 @@
 
 <h1>@ViewData["Title"]</h1>
 
+<!-- Mensagem de sucesso ou erro -->
+@if(ViewBag.Mensagem != null)
+{
+    <p style="color:green">@ViewBag.Mensagem</p>
+}
+
 <p>Preencha os dados da fundação abaixo:</p>
 
 <form method="post" action="/Fundacoes/Create">
