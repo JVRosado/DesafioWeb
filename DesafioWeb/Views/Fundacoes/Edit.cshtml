@@ -1,0 +1,58 @@
+@model DesafioWeb.Models.Fundacao
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Editar Fundação";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<!-- Formulário inicial para pesquisar pelo CNPJ -->
+<form asp-action="Edit" method="post">
+    <div>
+        <label for="cnpj">CNPJ:</label>
+        <input type="text" id="cnpj" name="cnpj" required />
+        <button type="submit">Buscar</button>
+    </div>
+</form>
+
+<hr />
+
+<!-- Mensagens de status -->
+@if (ViewBag.Mensagem != null)
+{
+    <p style="color:red">@ViewBag.Mensagem</p>
+}
+
+<!-- Exibir os dados encontrados e permitir edição -->
+@if (Model != null)
+{
+    <h2>Editar informações da Fundação</h2>
+
+    <form asp-action="ConfirmEdit" method="post">
+        <input type="hidden" asp-for="CNPJ" />
+
+        <div>
+            <label>Nome:</label>
+            <input asp-for="Nome" />
+        </div>
+
+        <div>
+            <label>Email:</label>
+            <input asp-for="Email" />
+        </div>
+
+        <div>
+            <label>Telefone:</label>
+            <input asp-for="Telefone" />
+        </div>
+
+        <div>
+            <label>Instituição Apoiadora:</label>
+            <input asp-for="InstituicaoApoiada" />
+        </div>
+
+        <br />
+        <button type="submit" style="background-color:green; color:white;">Confirmar Alterações</button>
+    </form>
+}
