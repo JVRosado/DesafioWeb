@@ -20,6 +20,22 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
+[C:/Users/joaov/Desktop/Desafio Web/DesafioWeb/Views/Fundacoes/Detalhes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnVuZGFjb2VzXERldGFsaGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/joaov/Desktop/Desafio Web/DesafioWeb/Views/Fundacoes/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnVuZGFjb2VzXEVkaXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/joaov/Desktop/Desafio Web/DesafioWeb/Views/Fundacoes/Excluir.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnVuZGFjb2VzXEV4Y2x1aXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/joaov/Desktop/Desafio Web/DesafioWeb/Views/Fundacoes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnVuZGFjb2VzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/joaov/Desktop/Desafio Web/DesafioWeb/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
