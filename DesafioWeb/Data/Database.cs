@@ -1,4 +1,4 @@
-using Microsoft.Data.Sqlite;         
+using Microsoft.Data.Sqlite;
 using DesafioWeb.Models;
 
 namespace DesafioWeb.Data
@@ -19,14 +19,12 @@ namespace DesafioWeb.Data
     /// </summary>
     public class Database : IDatabase
     {
-        // Conexão: usa o diretório atual da aplicação para criar/abrir fundacoes.db
-        // Isso normalmente coloca o arquivo na raiz do projeto quando rodado com "dotnet run" a partir da raiz.
         private string ConnectionString => $"Data Source={Path.Combine(Directory.GetCurrentDirectory(), "fundacoes.db")}";
 
         public Database()
         {
             // Garante que a tabela exista quando a instância é criada (útil para DI singleton)
-            try { CriarTabela(); } catch { /* ignorar erros de criação em ambiente de teste */ }
+            try { CriarTabela(); } catch { }
         }
 
         /// <summary>

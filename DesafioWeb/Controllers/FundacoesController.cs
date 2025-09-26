@@ -122,21 +122,21 @@ namespace DesafioWeb.Controllers
             }
         }
 
-        // GET: Fundacoes/Edit
+        
         [HttpGet]
         public IActionResult Edit()
         {
-            return View(); // mostra o campo para pesquisar por CNPJ
+            return View(); 
         }
 
-        // POST: Fundacoes/Edit (pesquisa a fundação pelo CNPJ)
+        // pesquisa a fundação pelo CNPJ
         [HttpPost]
-        public IActionResult SearchFoundationToEdit(string cnpj)
+        public IActionResult BuscarFundacaoParaEdicao(string cnpj)
         {
             return BuscarFundacaoPorCnpj(cnpj, "Edit");
         }
 
-        // POST: Fundacoes/ConfirmEdit (confirma edição e salva no banco)
+        // confirma edição e salva no banco
         [HttpPost]
         public IActionResult ConfirmEdit(Fundacao fundacaoAtualizada)
         {
@@ -163,17 +163,17 @@ namespace DesafioWeb.Controllers
         [HttpGet]
         public IActionResult Delete()
         {
-            return View(); // mostra o formulário para digitar o CNPJ
+            return View(); 
         }
 
-        // POST: Fundacoes/Delete (pesquisa o CNPJ antes de excluir)
+        // pesquisa o CNPJ antes de excluir
         [HttpPost]
         public IActionResult SearchFoundationToDelete(string cnpj)
         {
             return BuscarFundacaoPorCnpj(cnpj, "Delete");
         }
 
-        // POST: Fundacoes/ConfirmDelete (confirma e executa a exclusão)
+        // confirma e executa a exclusão
         [HttpPost]
         public IActionResult ConfirmDelete(string cnpj)
         {
@@ -191,8 +191,7 @@ namespace DesafioWeb.Controllers
         }
 
 
-        //Responsavel por fazer a busca de CNPJ e retornar as informaçoes da empresa caso encontre
-        // GET: Fundacoes/Search
+        //faz a busca de CNPJ e retornar as informaçoes da empresa caso encontre
         [HttpGet]
         public IActionResult Search()
         {
