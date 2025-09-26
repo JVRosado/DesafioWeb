@@ -1,3 +1,11 @@
+# Descrição do Projeto
+Este projeto é um sistema de gerenciamento de fundações seguindo o padrão MVC (Model-View-Controller), permitindo cadastrar, editar, excluir e buscar informações de fundações, garantindo validação de CNPJ e controle de duplicidade. É desenvolvido em C# com ASP.NET Core, utilizando .NET como plataforma mínima necessária para execução.
+
+# Justificativa do uso do .NET
+
+O .NET foi utilizado porque é a plataforma mínima necessária para executar aplicações C#. Sem ele, não seria possível compilar o código, gerenciar requisições web nem utilizar bibliotecas essenciais para manipulação de dados e acesso ao banco. Não se trata de um framework extra, mas da infraestrutura obrigatória para o funcionamento da aplicação.
+
+
 # Projeto .NET - Instruções
 
 Este arquivo contém as instruções necessárias para configurar, executar e testar o projeto localmente.
