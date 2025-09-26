@@ -5,40 +5,44 @@
     ViewData["Title"] = "Excluir Fundação";
 }
 
-<h1>@ViewData["Title"]</h1>
+<div class="container-excluir">
+    <h1 class="titulo-excluir">@ViewData["Title"]</h1>
 
-<!-- Formulário para buscar a fundação -->
-<form asp-action="Delete" method="post">
-    <div>
-        <label for="cnpj">CNPJ:</label>
-        <input type="text" id="cnpj" name="cnpj" required />
-        <button type="submit">Buscar</button>
-    </div>
-</form>
-
-<hr />
-
-<!-- Mensagens de status -->
-@if (ViewBag.Mensagem != null)
-{
-    <p style="color:red">@ViewBag.Mensagem</p>
-}
-
-<!-- Exibe os dados da fundação e o botão de exclusão -->
-@if (Model != null)
-{
-    <h2>Fundação encontrada</h2>
-    <ul>
-        <li><strong>Nome:</strong> @Model.Nome</li>
-        <li><strong>CNPJ:</strong> @Model.CNPJ</li>
-        <li><strong>Email:</strong> @Model.Email</li>
-        <li><strong>Telefone:</strong> @Model.Telefone</li>
-        <li><strong>Instituição Apoiadora:</strong> @Model.InstituicaoApoiada</li>
-    </ul>
-
-    <!-- Botão de confirmação -->
-    <form asp-action="ConfirmDelete" method="post">
-        <input type="hidden" name="cnpj" value="@Model.CNPJ" />
-        <button type="submit" style="background-color:red; color:white;">Confirmar Exclusão</button>
+    <!-- Formulário para buscar a fundação -->
+    <form asp-action="Delete" method="post" class="form-busca">
+        <div class="form-group">
+            <label for="cnpj">CNPJ:</label>
+            <input type="text" id="cnpj" name="cnpj" required />
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn-busca">Buscar</button>
+        </div>
     </form>
-}
+
+    <!-- Mensagens de status -->
+    @if (ViewBag.Mensagem != null)
+    {
+        <p class="mensagem @(ViewBag.TipoMensagem ?? "erro")">@ViewBag.Mensagem</p>
+    }
+
+    <!-- Exibe os dados da fundação e o botão de exclusão -->
+    @if (Model != null)
+    {
+        <div class="resultado-excluir">
+            <h2>Fundação encontrada</h2>
+            <ul>
+                <li><strong>Nome:</strong> @Model.Nome</li>
+                <li><strong>CNPJ:</strong> @Model.CNPJ</li>
+                <li><strong>Email:</strong> @Model.Email</li>
+                <li><strong>Telefone:</strong> @Model.Telefone</li>
+                <li><strong>Instituição Apoiadora:</strong> @Model.InstituicaoApoiada</li>
+            </ul>
+
+            <!-- Botão de confirmação -->
+            <form asp-action="ConfirmDelete" method="post">
+                <input type="hidden" name="cnpj" value="@Model.CNPJ" />
+                <button type="submit" class="btn-excluir">Confirmar Exclusão</button>
+            </form>
+        </div>
+    }
+</div>

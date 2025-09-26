@@ -119,3 +119,492 @@ body {
 .btn-fundacao.excluir:hover {
     background-color: #a93226;
 }
+
+footer {
+    background-color: #f8f9fa; /* cor de fundo clarinha */
+    padding: 15px 0; /* espaço interno */
+    text-align: center; /* centraliza o texto */
+    font-size: 14px; /* tamanho do texto */
+    color: #6c757d; /* cor cinza suave */
+    position: fixed; /* fixa no fim da tela */
+    bottom: 0;
+    left: 0;
+    width: 100%; /* ocupa toda a largura */
+}
+
+/* Container geral centralizado */
+.container-cadastro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f7f9fc;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Título */
+.titulo-cadastro {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+/* Texto explicativo */
+.descricao-cadastro {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+/* Mensagem de sucesso ou erro */
+.mensagem {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.mensagem.sucesso {
+    color: #27ae60; /* verde */
+}
+
+.mensagem.erro {
+    color: #c0392b; /* vermelho */
+}
+
+/* Formulário */
+.form-cadastro {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Grupo de label + input */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+/* Labels */
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #34495e;
+}
+
+/* Inputs */
+.form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #2980b9; /* destaque azul ao focar */
+}
+
+/* Botão */
+.btn-cadastro {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #2980b9;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-cadastro:hover {
+    background-color: #216694;
+}
+
+/* Container geral */
+.container-pesquisa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f7f9fc;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Título */
+.titulo-pesquisa {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Formulário */
+.form-pesquisa {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Grupo de label + input */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+/* Labels */
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #34495e;
+}
+
+/* Inputs */
+.form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #2980b9;
+}
+
+/* Botão de pesquisa */
+.btn-pesquisa {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #2980b9;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-pesquisa:hover {
+    background-color: #216694;
+}
+
+/* Mensagem de erro ou status */
+.mensagem {
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.mensagem.erro {
+    color: #c0392b; /* vermelho */
+}
+
+.mensagem.sucesso {
+    color: #27ae60; /* verde */
+}
+
+/* Resultado da pesquisa */
+.resultado-pesquisa {
+    margin-top: 25px;
+    text-align: left;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.resultado-pesquisa h2 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.resultado-pesquisa ul {
+    list-style: none;
+    padding: 0;
+}
+
+.resultado-pesquisa li {
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.resultado-pesquisa li:last-child {
+    border-bottom: none;
+}
+
+/* Container geral */
+.container-editar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f7f9fc;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Título */
+.titulo-editar {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Formulários */
+.form-busca, .form-editar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Grupo de label + input */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+/* Labels */
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #34495e;
+}
+
+/* Inputs */
+.form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #2980b9;
+}
+
+/* Botões */
+.btn-busca {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #2980b9;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-busca:hover {
+    background-color: #216694;
+}
+
+.btn-confirmar {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #27ae60;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-confirmar:hover {
+    background-color: #219150;
+}
+
+/* Mensagens de erro ou status */
+.mensagem {
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.mensagem.erro {
+    color: #c0392b; /* vermelho */
+}
+
+.mensagem.sucesso {
+    color: #27ae60; /* verde */
+}
+
+/* Resultado da busca para edição */
+.resultado-editar {
+    margin-top: 25px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.resultado-editar h2 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+/* Container geral */
+.container-excluir {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f7f9fc;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Título */
+.titulo-excluir {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Formulário */
+.form-busca {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Grupo de label + input */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+/* Labels */
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #34495e;
+}
+
+/* Inputs */
+.form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #2980b9;
+}
+
+/* Botões */
+.btn-busca {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #2980b9;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-busca:hover {
+    background-color: #216694;
+}
+
+.btn-excluir {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #c0392b;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-excluir:hover {
+    background-color: #a93226;
+}
+
+/* Mensagens de erro ou sucesso */
+.mensagem {
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.mensagem.sucesso {
+    color: #27ae60; /* verde */
+}
+
+.mensagem.erro {
+    color: #c0392b; /* vermelho */
+}
+
+/* Resultado da pesquisa */
+.resultado-excluir {
+    margin-top: 25px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.resultado-excluir h2 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.resultado-excluir ul {
+    list-style: none;
+    padding: 0;
+}
+
+.resultado-excluir li {
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.resultado-excluir li:last-child {
+    border-bottom: none;
+}

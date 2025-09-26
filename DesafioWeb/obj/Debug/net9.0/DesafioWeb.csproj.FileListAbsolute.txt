@@ -121,4 +121,4 @@ C:\Users\joaov\Desktop\Desafio Web\DesafioWeb\bin\Debug\net9.0\runtimes\win-x86\
 C:\Users\joaov\Desktop\Desafio Web\DesafioWeb\obj\Debug\net9.0\DesafioWeb.csproj.AssemblyReference.cache
 C:\Users\joaov\Desktop\Desafio Web\DesafioWeb\obj\Debug\net9.0\DesafioWeb.csproj.Up2Date
 C:\Users\joaov\Desktop\Desafio Web\DesafioWeb\obj\Debug\net9.0\DesafioWeb.sourcelink.json
-C:\Users\joaov\Desktop\Desafio Web\DesafioWeb\obj\Debug\net9.0\compressed\qn98is7bkb-etbv2gfmm6.gz
+C:\Users\joaov\Desktop\Desafio Web\DesafioWeb\obj\Debug\net9.0\compressed\qn98is7bkb-pe2xo0qw2t.gz

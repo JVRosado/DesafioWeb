@@ -83,7 +83,7 @@ namespace DesafioWeb.Controllers
             {
                 if (!CnpjValido(fundacao.CNPJ))
                 {
-                    ViewBag.Mensagem = $"O CNPJ{fundacao.CNPJ} é inválido!";
+                    ViewBag.Mensagem = $"O CNPJ {fundacao.CNPJ} é inválido!";
                     return View();
                 }
                 var existente = _database.BuscarPorCNPJ(fundacao.CNPJ);

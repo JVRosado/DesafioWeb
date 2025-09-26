@@ -5,54 +5,59 @@
     ViewData["Title"] = "Editar Fundação";
 }
 
-<h1>@ViewData["Title"]</h1>
+<div class="container-editar">
+    <h1 class="titulo-editar">@ViewData["Title"]</h1>
 
-<!-- Formulário inicial para pesquisar pelo CNPJ -->
-<form asp-action="Edit" method="post">
-    <div>
-        <label for="cnpj">CNPJ:</label>
-        <input type="text" id="cnpj" name="cnpj" required />
-        <button type="submit">Buscar</button>
-    </div>
-</form>
-
-<hr />
-
-<!-- Mensagens de status -->
-@if (ViewBag.Mensagem != null)
-{
-    <p style="color:red">@ViewBag.Mensagem</p>
-}
-
-<!-- Exibir os dados encontrados e permitir edição -->
-@if (Model != null)
-{
-    <h2>Editar informações da Fundação</h2>
-
-    <form asp-action="ConfirmEdit" method="post">
-        <input type="hidden" asp-for="CNPJ" />
-
-        <div>
-            <label>Nome:</label>
-            <input asp-for="Nome" />
+    <!-- Formulário para buscar pelo CNPJ -->
+    <form asp-action="Edit" method="post" class="form-busca">
+        <div class="form-group">
+            <label for="cnpj">CNPJ:</label>
+            <input type="text" id="cnpj" name="cnpj" required />
         </div>
-
-        <div>
-            <label>Email:</label>
-            <input asp-for="Email" />
+        <div class="form-group">
+            <button type="submit" class="btn-busca">Buscar</button>
         </div>
-
-        <div>
-            <label>Telefone:</label>
-            <input asp-for="Telefone" />
-        </div>
-
-        <div>
-            <label>Instituição Apoiadora:</label>
-            <input asp-for="InstituicaoApoiada" />
-        </div>
-
-        <br />
-        <button type="submit" style="background-color:green; color:white;">Confirmar Alterações</button>
     </form>
-}
+
+    <!-- Mensagens de status -->
+    @if (ViewBag.Mensagem != null)
+    {
+        <p class="mensagem erro">@ViewBag.Mensagem</p>
+    }
+
+    <!-- Exibir os dados encontrados e permitir edição -->
+    @if (Model != null)
+    {
+        <div class="resultado-editar">
+            <h2>Editar informações da Fundação</h2>
+
+            <form asp-action="ConfirmEdit" method="post" class="form-editar">
+                <input type="hidden" asp-for="CNPJ" />
+
+                <div class="form-group">
+                    <label>Nome:</label>
+                    <input asp-for="Nome" />
+                </div>
+
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input asp-for="Email" />
+                </div>
+
+                <div class="form-group">
+                    <label>Telefone:</label>
+                    <input asp-for="Telefone" />
+                </div>
+
+                <div class="form-group">
+                    <label>Instituição Apoiadora:</label>
+                    <input asp-for="InstituicaoApoiada" />
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn-confirmar">Confirmar Alterações</button>
+                </div>
+            </form>
+        </div>
+    }
+</div>
