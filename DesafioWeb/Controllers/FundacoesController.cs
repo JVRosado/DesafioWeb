@@ -131,7 +131,7 @@ namespace DesafioWeb.Controllers
 
         // pesquisa a fundação pelo CNPJ
         [HttpPost]
-        public IActionResult BuscarFundacaoParaEdicao(string cnpj)
+        public IActionResult SearchFoundationToEdit(string cnpj)
         {
             return BuscarFundacaoPorCnpj(cnpj, "Edit");
         }
@@ -191,7 +191,7 @@ namespace DesafioWeb.Controllers
         }
 
 
-        //faz a busca de CNPJ e retornar as informaçoes da empresa caso encontre
+        //Responsavel por faz a busca de CNPJ e retornar as informaçoes da empresa caso encontre
         [HttpGet]
         public IActionResult Search()
         {

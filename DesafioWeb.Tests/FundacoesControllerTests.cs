@@ -86,7 +86,7 @@ namespace DesafioWeb.Tests
             var controller = new FundacoesController(mockDb.Object);
 
             
-            var result = controller.BuscarFundacaoParaEdicao("00000000000000") as ViewResult;
+            var result = controller.SearchFoundationToEdit("00000000000000") as ViewResult;
 
             
             Assert.NotNull(result);
@@ -104,7 +104,7 @@ namespace DesafioWeb.Tests
             var controller = new FundacoesController(mockDb.Object);
 
             
-            var result = controller.BuscarFundacaoParaEdicao(fundacao.CNPJ) as ViewResult;
+            var result = controller.SearchFoundationToEdit(fundacao.CNPJ) as ViewResult;
 
             
             Assert.NotNull(result);
