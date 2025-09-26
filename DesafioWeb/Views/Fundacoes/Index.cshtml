@@ -3,21 +3,29 @@
     ViewData["Title"] = "Cadastro de Fundações";
 }
 
-<h1>@ViewData["Title"]</h1>
+<div class="container-fundacoes">
+    <h1 class="titulo-fundacoes">@ViewData["Title"]</h1>
 
-<p>Escolha uma operação:</p>
+    <p class="descricao-fundacoes">
+        Este sistema permite gerenciar informações de fundações, incluindo cadastro, atualização, 
+        busca e exclusão de registros. Com uma interface simples e funcional, ele facilita o 
+        controle das informações essenciais de cada instituição de forma rápida e organizada.
+    </p>
 
-<div style="display:flex; gap:10px;">
-    <a href="/Fundacoes/Create">
-        <button>Cadastrar Fundação</button>
-    </a>
-    <a href="/Fundacoes/Search">
-        <button>Pesquisar Fundação</button>
-    </a>
-    <a href="/Fundacoes/Edit">
-        <button>Editar Fundação</button>
-    </a>
-    <a href="/Fundacoes/Delete">
-        <button>Excluir Fundação</button>
-    </a>
+    <p class="subtitulo-fundacoes">Escolha uma operação:</p>
+
+    <div class="botoes-fundacoes">
+        <a href="/Fundacoes/Create" class="link-botao">
+            <button class="btn-fundacao cadastrar">Cadastrar Fundação</button>
+        </a>
+        <a href="/Fundacoes/Search" class="link-botao">
+            <button class="btn-fundacao pesquisar">Pesquisar Fundação</button>
+        </a>
+        <a href="/Fundacoes/Edit" class="link-botao">
+            <button class="btn-fundacao editar">Editar Fundação</button>
+        </a>
+        <a href="/Fundacoes/Delete" class="link-botao">
+            <button class="btn-fundacao excluir">Excluir Fundação</button>
+        </a>
+    </div>
 </div>
