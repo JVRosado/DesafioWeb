@@ -1,21 +1,33 @@
-// Data/Database.cs
-using System;
-using System.Collections.Generic;
-using System.IO;
-using Microsoft.Data.Sqlite;           // Necessário: pacote Microsoft.Data.Sqlite
+using Microsoft.Data.Sqlite;         
 using DesafioWeb.Models;
 
 namespace DesafioWeb.Data
 {
+    public interface IDatabase
+    {
+        void CriarTabela();
+        void Inserir(Fundacao f);
+        Fundacao? BuscarPorCNPJ(string cnpj);
+        void Atualizar(Fundacao f);
+        void Excluir(string cnpj);
+        List<Fundacao> ListarTodas();
+    }
+
     /// <summary>
     /// Classe responsável por toda a comunicação com o banco SQLite.
     /// O arquivo fundacoes.db será criado automaticamente no diretório de execução.
     /// </summary>
-    public class Database
+    public class Database : IDatabase
     {
         // Conexão: usa o diretório atual da aplicação para criar/abrir fundacoes.db
         // Isso normalmente coloca o arquivo na raiz do projeto quando rodado com "dotnet run" a partir da raiz.
         private string ConnectionString => $"Data Source={Path.Combine(Directory.GetCurrentDirectory(), "fundacoes.db")}";
+
+        public Database()
+        {
+            // Garante que a tabela exista quando a instância é criada (útil para DI singleton)
+            try { CriarTabela(); } catch { /* ignorar erros de criação em ambiente de teste */ }
+        }
 
         /// <summary>
         /// Cria a tabela Fundacoes se ela não existir.
@@ -23,12 +35,10 @@ namespace DesafioWeb.Data
         /// </summary>
         public void CriarTabela()
         {
-            // using garante fechamento da conexão mesmo em caso de exceptions
             using var connection = new SqliteConnection(ConnectionString);
             connection.Open();
 
             using var cmd = connection.CreateCommand();
-            // CREATE TABLE IF NOT EXISTS protege de tentar criar a mesma tabela várias vezes
             cmd.CommandText = @"
                 CREATE TABLE IF NOT EXISTS Fundacoes (
                     Id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -55,7 +65,6 @@ namespace DesafioWeb.Data
                 VALUES ($nome, $cnpj, $email, $telefone, $instituicao);
             ";
 
-            // Sempre use parâmetros para evitar SQL Injection
             cmd.Parameters.AddWithValue("$nome", f.Nome);
             cmd.Parameters.AddWithValue("$cnpj", f.CNPJ);
             cmd.Parameters.AddWithValue("$email", f.Email);

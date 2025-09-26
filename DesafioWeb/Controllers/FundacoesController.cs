@@ -6,6 +6,12 @@ namespace DesafioWeb.Controllers
 {
     public class FundacoesController : Controller
     {
+        private readonly IDatabase _database;
+
+        public FundacoesController(IDatabase database)
+        {
+            _database = database;
+        }
 
         // Validação de CNPJ
         private bool CnpjValido(string cnpj)
@@ -52,13 +58,25 @@ namespace DesafioWeb.Controllers
 
             return true;
         }
-
-        private readonly Database _database;
-
-        public FundacoesController()
+        
+        // Helper to validate CNPJ and search for Fundação, returning the appropriate view
+        private IActionResult BuscarFundacaoPorCnpj(string cnpj, string viewName)
         {
-            _database = new Database();
-            _database.CriarTabela(); // garante que a tabela exista
+            if (string.IsNullOrWhiteSpace(cnpj))
+            {
+                ViewBag.Mensagem = "Informe um CNPJ válido.";
+                return View(viewName);
+            }
+
+            var fundacao = _database.BuscarPorCNPJ(cnpj);
+
+            if (fundacao == null)
+            {
+                ViewBag.Mensagem = "Fundação não encontrada.";
+                return View(viewName);
+            }
+
+            return View(viewName, fundacao);
         }
 
         // GET: Fundacoes/Index
@@ -83,7 +101,7 @@ namespace DesafioWeb.Controllers
             {
                 if (!CnpjValido(fundacao.CNPJ))
                 {
-                    ViewBag.Mensagem = $"O CNPJ {fundacao.CNPJ} é inválido!";
+                    ViewBag.Mensagem = $"O CNPJ{fundacao.CNPJ} é inválido!";
                     return View();
                 }
                 var existente = _database.BuscarPorCNPJ(fundacao.CNPJ);
@@ -113,23 +131,9 @@ namespace DesafioWeb.Controllers
 
         // POST: Fundacoes/Edit (pesquisa a fundação pelo CNPJ)
         [HttpPost]
-        public IActionResult Edit(string cnpj)
+        public IActionResult SearchFoundationToEdit(string cnpj)
         {
-            if (string.IsNullOrWhiteSpace(cnpj))
-            {
-                ViewBag.Mensagem = "Informe um CNPJ válido.";
-                return View();
-            }
-
-            var fundacao = _database.BuscarPorCNPJ(cnpj);
-
-            if (fundacao == null)
-            {
-                ViewBag.Mensagem = "Fundação não encontrada.";
-                return View();
-            }
-
-            return View(fundacao); // retorna os dados para edição
+            return BuscarFundacaoPorCnpj(cnpj, "Edit");
         }
 
         // POST: Fundacoes/ConfirmEdit (confirma edição e salva no banco)
@@ -155,9 +159,6 @@ namespace DesafioWeb.Controllers
             }
         }
 
-
-
-
         // GET: Fundacoes/Delete
         [HttpGet]
         public IActionResult Delete()
@@ -167,23 +168,9 @@ namespace DesafioWeb.Controllers
 
         // POST: Fundacoes/Delete (pesquisa o CNPJ antes de excluir)
         [HttpPost]
-        public IActionResult Delete(string cnpj)
+        public IActionResult SearchFoundationToDelete(string cnpj)
         {
-            if (string.IsNullOrWhiteSpace(cnpj))
-            {
-                ViewBag.Mensagem = "Informe um CNPJ válido.";
-                return View();
-            }
-
-            var fundacao = _database.BuscarPorCNPJ(cnpj);
-
-            if (fundacao == null)
-            {
-                ViewBag.Mensagem = "Fundação não encontrada.";
-                return View();
-            }
-
-            return View(fundacao); // envia os dados para confirmação
+            return BuscarFundacaoPorCnpj(cnpj, "Delete");
         }
 
         // POST: Fundacoes/ConfirmDelete (confirma e executa a exclusão)
@@ -209,30 +196,14 @@ namespace DesafioWeb.Controllers
         [HttpGet]
         public IActionResult Search()
         {
-
             return View();
         }
         // POST: Fundacoes/Search
         [HttpPost]
-        public IActionResult Search(string cnpj)
+        public IActionResult SearchFoundation(string cnpj)
         {
-            if (string.IsNullOrWhiteSpace(cnpj))
-            {
-                ViewBag.Mensagem = "Informe um CNPJ válido.";
-                return View();
-            }
-
-            var fundacao = _database.BuscarPorCNPJ(cnpj);
-
-            if (fundacao == null)
-            {
-                ViewBag.Mensagem = "Fundação não encontrada.";
-                return View();
-            }
-
-            return View(fundacao); // envia a fundação encontrada
+            return BuscarFundacaoPorCnpj(cnpj, "Search");
         }
-
     }
 
 }

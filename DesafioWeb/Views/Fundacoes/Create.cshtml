@@ -9,14 +9,14 @@
     <!-- Mensagem de sucesso ou erro -->
     @if(ViewBag.Mensagem != null)
     {
-        <p class="mensagem @(ViewBag.Mensagem == "Cadastro efetuado com sucesso!" ? "sucesso" : "erro")">
+        <p class="mensagem">
             @ViewBag.Mensagem
         </p>
     }
 
     <p class="descricao-cadastro">Preencha os dados da fundação abaixo:</p>
 
-    <form method="post" action="/Fundacoes/Create" class="form-cadastro">
+    <form method="post" asp-action="Create" class="form-cadastro">
         <div class="form-group">
             <label for="Nome">Nome:</label>
             <input type="text" id="Nome" name="Nome" required />

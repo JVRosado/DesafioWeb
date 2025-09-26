@@ -9,7 +9,7 @@
     <h1 class="titulo-editar">@ViewData["Title"]</h1>
 
     <!-- Formulário para buscar pelo CNPJ -->
-    <form asp-action="Edit" method="post" class="form-busca">
+    <form asp-action="SearchFoundationToEdit" method="post" class="form-busca">
         <div class="form-group">
             <label for="cnpj">CNPJ:</label>
             <input type="text" id="cnpj" name="cnpj" required />
@@ -22,7 +22,7 @@
     <!-- Mensagens de status -->
     @if (ViewBag.Mensagem != null)
     {
-        <p class="mensagem erro">@ViewBag.Mensagem</p>
+        <p class="mensagem">@ViewBag.Mensagem</p>
     }
 
     <!-- Exibir os dados encontrados e permitir edição -->

@@ -165,14 +165,7 @@ footer {
 .mensagem {
     font-weight: bold;
     margin-bottom: 15px;
-}
-
-.mensagem.sucesso {
-    color: #27ae60; /* verde */
-}
-
-.mensagem.erro {
-    color: #c0392b; /* vermelho */
+    color: #216694;
 }
 
 /* Formulário */

@@ -9,7 +9,7 @@
     <h1 class="titulo-excluir">@ViewData["Title"]</h1>
 
     <!-- Formulário para buscar a fundação -->
-    <form asp-action="Delete" method="post" class="form-busca">
+    <form asp-action="SearchFoundationToDelete" method="post" class="form-busca">
         <div class="form-group">
             <label for="cnpj">CNPJ:</label>
             <input type="text" id="cnpj" name="cnpj" required />
@@ -22,7 +22,8 @@
     <!-- Mensagens de status -->
     @if (ViewBag.Mensagem != null)
     {
-        <p class="mensagem @(ViewBag.TipoMensagem ?? "erro")">@ViewBag.Mensagem</p>
+        <p class="mensagem">
+        @ViewBag.Mensagem</p>
     }
 
     <!-- Exibe os dados da fundação e o botão de exclusão -->

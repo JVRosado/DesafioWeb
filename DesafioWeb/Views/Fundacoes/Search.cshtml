@@ -9,7 +9,7 @@
     <h1 class="titulo-pesquisa">@ViewData["Title"]</h1>
 
     <!-- Formulário de busca -->
-    <form asp-action="Search" method="post" class="form-pesquisa">
+    <form asp-action="SearchFoundation" method="post" class="form-pesquisa">
         <div class="form-group">
             <label for="cnpj">CNPJ:</label>
             <input type="text" id="cnpj" name="cnpj" required />
@@ -22,7 +22,7 @@
     <!-- Mensagem de erro ou status -->
     @if (ViewBag.Mensagem != null)
     {
-        <p class="mensagem erro">@ViewBag.Mensagem</p>
+        <p class="mensagem">@ViewBag.Mensagem</p>
     }
 
     <!-- Exibe os dados da fundação se encontrados -->
